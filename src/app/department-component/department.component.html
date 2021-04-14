@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">STT</th>
+    <th scope="col">Code</th>
+    <th scope="col">Name</th>
+    <th scope="col">Create date</th>
+    <th scope="col">Update date</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let emp of listDepartment; index as i">
+    <th scope="row">{{i + 1}}</th>
+    <td>{{emp.code}}</td>
+    <td>{{emp.name}}</td>
+    <td>{{emp.createDate | date: 'dd/MM/yyyy'}}</td>
+    <td>{{emp.updateDate | date: 'dd/MM/yyyy'}}</td>
+    <td>
+      <i class="fa fa-pencil mr-3 pointer" aria-hidden="true" (click)="showById(emp.id)"></i>
+      <i class="fa fa-trash pointer" aria-hidden="true"></i>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,55 @@
+<form class="row" [formGroup]="formGroup" (ngSubmit)="saveDepartment()" *ngIf="department">
+    <div class="col-12">
+        <div mat-dialog-title>
+            Update department
+        </div>
+        <div mat-dialog-content class="w-100">
+            <div class="row p-2">
+                <div class="col-6">
+                    <mat-form-field class=" w-100">
+                        <mat-label>Code</mat-label>
+                        <input matInput formControlName="code" placeholder="Ex. Pizza" value="Sushi">
+                        <mat-error *ngIf="errors('code', 'required')">
+                            Department code is required
+                        </mat-error>
+                        <mat-error *ngIf="errors('code', 'maxlength')">
+                            Department code max length is 10
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class=" w-100">
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="name" placeholder="Ex. Pizza" value="Sushi">
+                        <mat-error *ngIf="errors('name', 'required')">
+                            Department name is required
+                        </mat-error>
+                        <mat-error *ngIf="errors('name', 'maxlength')">
+                            Department name max length is 100
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class=" w-100">
+                        <mat-label>Create date</mat-label>
+                        <input matInput [matDatepicker]="pickerCreate" formControlName="create">
+                        <mat-datepicker-toggle matSuffix [for]="pickerCreate"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerCreate></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class=" w-100">
+                        <mat-label>Update date</mat-label>
+                        <input matInput [matDatepicker]="pickerUpdate" formControlName="update">
+                        <mat-datepicker-toggle matSuffix [for]="pickerUpdate"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerUpdate></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Cancel</button>
+            <button type="submit" color="primary" mat-button>Save</button>
+        </div>
+    </div>
+</form>
